@@ -21,7 +21,7 @@ public class MaterialAcademicoService {
 
     public MaterialAcademico compartilharMaterial(MaterialAcademico material, Long idAutora) {
         Usuaria autora = usuariaRepository.findById(idAutora)
-                .orElseThrow(() -> new RuntimeException("Autora (Usuária) não encontrada"));
+                .orElseThrow(() -> new RuntimeException("Usuária não encontrada"));
 
         material.setAutora(autora);
         material.setStatus("Pendente");
@@ -49,7 +49,7 @@ public class MaterialAcademicoService {
 
     public void excluirMaterial(Long idMaterial) {
         if (!materialRepository.existsById(idMaterial)) {
-            throw new RuntimeException("Material não encontrado para exclusão");
+            throw new RuntimeException("Material não encontrado");
         }
         materialRepository.deleteById(idMaterial);
     }
