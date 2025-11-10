@@ -49,7 +49,7 @@ public class NoticiaService {
 
     public void excluirNoticia(Long idNoticia) {
         if (!noticiaRepository.existsById(idNoticia)) {
-            throw new RuntimeException("Notícia não encontrada para exclusão");
+            throw new RuntimeException("Notícia não encontrada");
         }
         noticiaRepository.deleteById(idNoticia);
     }
